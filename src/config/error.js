@@ -4,6 +4,6 @@ const setError = (status, message) => {
     error.message = message; 
     return error; 
   };
-  
-  module.exports = setError;
+
+  module.exports=setError
   

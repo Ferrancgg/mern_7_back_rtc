@@ -5,6 +5,13 @@ const register=async(req,res,next)=>{
     try{
         console.log("he llegado a controller")
         const newUser= new User(req.body)
+        const userDuplicated=await User.findOne({userName:req.body.userName})
+        if(userDuplicated){
+            return  next(setError(400,"this user already exists"))
+            
+        }
+
+
         const user= await newUser.save()
         return res.status(201).json(user)
         
