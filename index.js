@@ -3,7 +3,8 @@ const express = require("express");
 const connectDB = require("./src/config/db");
 const setError = require("./src/config/error");
 const indexRoutes = require("./src/api/routes/indexRoutes");
-// const indexRouter = require("./src/api/routes/indexRouter");
+
+
 require("dotenv").config();
 const app = express();
 app.use(express.json())

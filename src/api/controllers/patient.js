@@ -14,7 +14,6 @@ const getAllPatient=async(req,res,next)=>{
     }
 
 }
-
 const getPatientById=async(req,res,next)=>{
     try{
         const {id}=req.params
@@ -56,6 +55,18 @@ const deletePatient=async(req,res,next)=>{
     }
 
 }
+const updatePatient=async(req,res,next)=>{
+    try{
+         const{id}=req.params
+    const oldPatient= Patient.findById(id)
+    const newPatient=new Patient(req.body)
+    newPatient._id=id
+    const patientUpdated= await Patient.findByIdAndUpdate(id,newPatient,{new:true})
+    
+    }
+    catch{ return next (setError(400,"I can't updated this client"))}
+   
 
+}
 
-module.exports={getAllPatient,getPatientById,createPatient,deletePatient}
+module.exports={getAllPatient,getPatientById,createPatient,deletePatient,updatePatient}

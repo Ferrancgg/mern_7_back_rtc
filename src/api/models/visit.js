@@ -3,12 +3,14 @@ const mongoose = require('mongoose');
 const visitSchema = new mongoose.Schema(
   {
     patientId: {
-      type: mongoose.Schema.Types.ObjectId,
+      // type: mongoose.Schema.Types.ObjectId,
+      type:String,
       ref: 'Patient', 
       required: true,
     },
     doctorId: {
-      type: mongoose.Schema.Types.ObjectId,
+      // type: mongoose.Schema.Types.ObjectId,
+      type:String,
       ref: 'User', 
       required: true,
     },
